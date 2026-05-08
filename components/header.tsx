@@ -3,15 +3,15 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Phone, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navigation = [
-  { name: "Properties", href: "#properties" },
-  { name: "Contractors", href: "#contractors" },
-  { name: "Materials", href: "#materials" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Properties", href: "/properties" },
+  { name: "Contractors", href: "/contractors" },
+  { name: "Materials", href: "/materials" },
+  { name: "About", href: "/#about" },
+  { name: "Contact", href: "/#contact" },
 ]
 
 export function Header() {
@@ -50,13 +50,19 @@ export function Header() {
 
         {/* CTA Buttons */}
         <div className="hidden lg:flex lg:items-center lg:gap-4">
-          <Link href="tel:+1234567890" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-            <Phone className="h-4 w-4" />
-            <span>+1 (234) 567-890</span>
+          <Link href="/login" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            Sign in
           </Link>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-            Book Meeting - $40
-          </Button>
+          <Link href="/register">
+            <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
+              Register
+            </Button>
+          </Link>
+          <Link href="/booking">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+              Book Meeting - $40
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -88,10 +94,22 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-border">
-              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                Book Meeting - $40
-              </Button>
+            <div className="pt-4 border-t border-border space-y-3">
+              <Link href="/login" className="block">
+                <Button variant="outline" className="w-full border-border">
+                  Sign in
+                </Button>
+              </Link>
+              <Link href="/register" className="block">
+                <Button variant="outline" className="w-full border-primary/50 text-primary">
+                  Register
+                </Button>
+              </Link>
+              <Link href="/booking" className="block">
+                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  Book Meeting - $40
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

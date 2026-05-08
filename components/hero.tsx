@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { ArrowRight, Building2, Users, Package, Shield } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -36,13 +37,17 @@ export function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 animate-glow">
-            Explore Properties
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-          <Button size="lg" variant="outline" className="border-primary/50 text-foreground hover:bg-primary/10 text-lg px-8 py-6">
-            Book a Meeting - $40
-          </Button>
+          <Link href="/properties">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 animate-glow">
+              Explore Properties
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+          <Link href="/booking">
+            <Button size="lg" variant="outline" className="border-primary/50 text-foreground hover:bg-primary/10 text-lg px-8 py-6">
+              Book a Meeting - $40
+            </Button>
+          </Link>
         </div>
 
         {/* Meeting Booking Banner */}
@@ -56,9 +61,11 @@ export function Hero() {
                 Secure your private property tour with Bondling experts
               </p>
             </div>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 whitespace-nowrap">
-              Only $40 - Book Now
-            </Button>
+            <Link href="/booking">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 whitespace-nowrap">
+                Only $40 - Book Now
+              </Button>
+            </Link>
           </div>
         </div>
 
